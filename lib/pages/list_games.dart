@@ -74,7 +74,13 @@ class ListGames extends StatelessWidget {
             ),
             Expanded(
               child: Obx(() {
-                final filteredGames = gamesController.filteredGames;
+                final games = gamesController.games;
+
+                if (gamesController.isLoading.value) {
+                  return const Center(
+                    child: CircularProgressIndicator(color: Color(0xFF8162FF)),
+                  );
+                }
 
                 return GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -83,15 +89,19 @@ class ListGames extends StatelessWidget {
                     mainAxisSpacing: 16,
                     childAspectRatio: 0.7,
                   ),
-                  itemCount: filteredGames.length,
+                  itemCount: games.length,
                   itemBuilder: (context, index) {
-                    final game = filteredGames[index];
-                    final isFav = gamesController.isFavorite(game);
+                    final game = games[index];
 
-                    return ItemGameReactive(
-                      game: game,
-                      isFavorite: isFav,
-                      onToggle: () => gamesController.toggleFavorite(game),
+                    return GetBuilder<GamesController>(
+                      builder: (controller) {
+                        final isFav = controller.isFavorite(game);
+                        return ItemGameReactive(
+                          game: game,
+                          isFavorite: isFav,
+                          onToggle: () => controller.toggleFavorite(game),
+                        );
+                      },
                     );
                   },
                 );

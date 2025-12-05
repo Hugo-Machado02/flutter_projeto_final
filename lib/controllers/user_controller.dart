@@ -45,9 +45,9 @@ class UserController extends GetxController {
       clearForm();
 
       if (fromProfile) {
-        Get.back(); // Volta para perfil
+        Get.back();
       } else {
-        Get.offAllNamed('/usuarios'); // Vai para página de usuários
+        Get.offAllNamed('/usuarios');
       }
     } else {
       _showError('Email já existe ou erro ao salvar');
@@ -66,7 +66,6 @@ class UserController extends GetxController {
 
     await UserService.updateUser(user);
 
-    // Notificar AuthController se for o usuário logado
     final authController = Get.find<AuthController>();
     if (authController.currentUser.value?.id == editingUserId) {
       authController.reloadCurrentUser();
@@ -81,7 +80,6 @@ class UserController extends GetxController {
     if (success) {
       loadUsers();
 
-      // Se removeu o usuário logado, fazer logout
       final authController = Get.find<AuthController>();
       if (authController.currentUser.value?.id == userId) {
         authController.logout();

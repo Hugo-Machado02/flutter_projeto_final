@@ -1,4 +1,4 @@
-<img width="451" height="967" alt="flutter - 02" src="https://github.com/user-attachments/assets/9fcd934a-0a16-4943-9b7d-e4c7092239c5" /># 🎮 PROJETO FINAL - CATALOGO DE JOGOS 🎮
+# 🎮 PROJETO FINAL - CATALOGO DE JOGOS 🎮
 > Um aplicativo intuitivo para descoberta e gerenciamento de catálogos de jogos.
 
 ---
@@ -17,12 +17,12 @@ Abaixo estão as telas principais da aplicação. O design foi pensado para ser 
 
 | Login | Home | Favoritos |
 |:---:|:---:|:---:|
-| <img width="451" height="967" alt="flutter - 02" src="https://github.com/user-attachments/assets/e10740bd-dacf-4594-8466-aa88b795a7b3" />  | <img width="451" height="967" alt="flutter - 02" src="https://github.com/user-attachments/assets/e10740bd-dacf-4594-8466-aa88b795a7b3" /> | <img width="451" height="967" alt="flutter - 02" src="https://github.com/user-attachments/assets/e10740bd-dacf-4594-8466-aa88b795a7b3" /> |
+| <img width="436" height="959" alt="flutter - 01" src="https://github.com/user-attachments/assets/a9f12936-b714-4b7b-8a4f-70f0ef643c79" /> | <img width="451" height="967" alt="flutter - 02" src="https://github.com/user-attachments/assets/0b1bdd01-e0e3-4522-a397-e378b5be6e35" /> | <img width="451" height="967" alt="flutter - 03" src="https://github.com/user-attachments/assets/7f0258ab-1905-4f5a-93af-340149f4a70c" /> |
 | *Autenticação* | *Listagem via API RAWG* | *Gestão de Favoritos* |
 
-| Usuários (Lista) | Perfil | Cadastro/Edição |
+| Usuários | Perfil | Cadastro/Edição |
 |:---:|:---:|:---:|
-| ![Usuarios Screenshot](<img width="446" height="961" alt="flutter - 04" src="https://github.com/user-attachments/assets/2087f9b2-1412-41e3-a367-b69b8f5f6a89" />) | ![Perfil Screenshot](<img width="438" height="974" alt="flutter - 05" src="https://github.com/user-attachments/assets/2d43eba2-aac4-4116-bcf8-48a55fa4edf1" />) | ![Formulario Screenshot](<img width="442" height="975" alt="Flutter - 06" src="https://github.com/user-attachments/assets/527d63a3-318b-475e-be98-7825a7e4a3a3" />) |
+| <img width="446" height="961" alt="flutter - 04" src="https://github.com/user-attachments/assets/a040a0d8-2c13-451e-bfc6-9aeede1dba26" /> | <img width="438" height="974" alt="flutter - 05" src="https://github.com/user-attachments/assets/53be5e6f-48a3-42e9-83b6-7c7dc4444ee0" /> | <img width="442" height="975" alt="Flutter - 06" src="https://github.com/user-attachments/assets/3d47d9dc-008d-48d4-9cd5-6089556df465" /> |
 | *Visualização CRUD* | *Dados do usuário logado* | *Inclusão e alteração* |
 
 ### Descrição Detalhada das Telas

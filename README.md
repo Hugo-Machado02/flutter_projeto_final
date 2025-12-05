@@ -1,4 +1,4 @@
-# 🎮 PROJETO FINAL - CATALOGO DE JOGOS 🎮
+<img width="436" height="959" alt="flutter - 01" src="https://github.com/user-attachments/assets/b138f8a9-4b6a-40e2-b74f-a93913ad5249" /># 🎮 PROJETO FINAL - CATALOGO DE JOGOS 🎮
 > Um aplicativo intuitivo para descoberta e gerenciamento de catálogos de jogos.
 
 ---
@@ -14,14 +14,18 @@ O objetivo principal é oferecer uma plataforma centralizada onde o usuário pod
 
 Abaixo estão as telas principais da aplicação. O design foi pensado para ser limpo e focado na experiência do usuário.
 
-| Login | Home (Catálogo) | Favoritos |
+| Login | Home | Favoritos |
 |:---:|:---:|:---:|
-| ![Login Screenshot](insira_link_da_imagem_login_aqui) | ![Home Screenshot](insira_link_da_imagem_home_aqui) | ![Favoritos Screenshot](insira_link_da_imagem_favoritos_aqui) |
+| ![Login](<img width="436" height="959" alt="flutter - 01" src="https://github.com/user-attachments/assets/fdec4ebf-430a-4b05-b4da-8ec9ac3f1a36" />) | 
+![Home Screenshot](<img width="451" height="967" alt="flutter - 02" src="https://github.com/user-attachments/assets/426e8adc-5cb5-4b09-803d-aafd01f7c1ac" />) | 
+![Favoritos Screenshot](<img width="451" height="967" alt="flutter - 03" src="https://github.com/user-attachments/assets/99109e93-fec1-4a32-bc97-3baa79a1c3af" />) |
 | *Autenticação* | *Listagem via API RAWG* | *Gestão de Favoritos* |
 
 | Usuários (Lista) | Perfil | Cadastro/Edição |
 |:---:|:---:|:---:|
-| ![Usuarios Screenshot](insira_link_da_imagem_usuarios_aqui) | ![Perfil Screenshot](insira_link_da_imagem_perfil_aqui) | ![Formulario Screenshot](insira_link_da_imagem_form_aqui) |
+| ![Usuarios Screenshot](<img width="446" height="961" alt="flutter - 04" src="https://github.com/user-attachments/assets/2087f9b2-1412-41e3-a367-b69b8f5f6a89" />) |
+![Perfil Screenshot](<img width="438" height="974" alt="flutter - 05" src="https://github.com/user-attachments/assets/2d43eba2-aac4-4116-bcf8-48a55fa4edf1" />) |
+![Formulario Screenshot](<img width="442" height="975" alt="Flutter - 06" src="https://github.com/user-attachments/assets/527d63a3-318b-475e-be98-7825a7e4a3a3" />) |
 | *Visualização CRUD* | *Dados do usuário logado* | *Inclusão e alteração* |
 
 ### Descrição Detalhada das Telas

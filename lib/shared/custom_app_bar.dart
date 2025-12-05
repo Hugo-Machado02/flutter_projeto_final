@@ -2,25 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:projeto_final/pages/perfil.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String userName;
-
-  const CustomAppBar({super.key, required this.userName});
+  const CustomAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Color(0xFF141518),
+      backgroundColor: const Color(0xFF141518),
       toolbarHeight: 80,
+      elevation: 0,
+      flexibleSpace: Container(color: Color(0xFF141518)),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            'Olá, Hugo!',
-            style: TextStyle(
-              fontSize: 25,
-              color: Color(0xFF8162FF),
-              fontWeight: FontWeight.bold,
-            ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                'Olá, Hugo!',
+                style: TextStyle(
+                  fontSize: 22,
+                  color: const Color(0xFF9575FF),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                'Seja Bem-vindo!',
+                style: TextStyle(fontSize: 12, color: Colors.white60),
+              ),
+            ],
           ),
           IconButton(
             icon: Icon(Icons.settings, size: 25, color: Colors.white),
@@ -34,10 +44,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ],
       ),
       shape: const Border(
-        bottom: BorderSide(
-          color: Color(0xFF26272B), // Cor da sua borda
-          width: 1.0, // Espessura da borda
-        ),
+        bottom: BorderSide(color: Color(0xFF26272B), width: 1.0),
       ),
     );
   }

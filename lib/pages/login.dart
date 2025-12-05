@@ -8,7 +8,7 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AuthController authController = Get.find<AuthController>();
-    
+
     return Scaffold(
       backgroundColor: const Color(0xFF141518),
       body: SafeArea(
@@ -91,85 +91,89 @@ class Login extends StatelessWidget {
                   // Campo Senha
                   Container(
                     margin: const EdgeInsets.only(bottom: 24.0),
-                    child: Obx(() => TextFormField(
-                      controller: authController.passwordController,
-                      obscureText: !authController.isPasswordVisible.value,
-                      style: const TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        labelText: 'Senha',
-                        labelStyle: const TextStyle(color: Colors.white70),
-                        prefixIcon: const Icon(
-                          Icons.lock,
-                          color: Color(0xFF8162FF),
-                        ),
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            authController.isPasswordVisible.value
-                                ? Icons.visibility_off
-                                : Icons.visibility,
-                            color: Colors.white70,
-                          ),
-                          onPressed: authController.togglePasswordVisibility,
-                        ),
-                        filled: true,
-                        fillColor: const Color(0xFF26272B),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide.none,
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(
+                    child: Obx(
+                      () => TextFormField(
+                        controller: authController.passwordController,
+                        obscureText: !authController.isPasswordVisible.value,
+                        style: const TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          labelText: 'Senha',
+                          labelStyle: const TextStyle(color: Colors.white70),
+                          prefixIcon: const Icon(
+                            Icons.lock,
                             color: Color(0xFF8162FF),
-                            width: 2,
+                          ),
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              authController.isPasswordVisible.value
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                              color: Colors.white70,
+                            ),
+                            onPressed: authController.togglePasswordVisibility,
+                          ),
+                          filled: true,
+                          fillColor: const Color(0xFF26272B),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: BorderSide.none,
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: const BorderSide(
+                              color: Color(0xFF8162FF),
+                              width: 2,
+                            ),
                           ),
                         ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Por favor, insira sua senha';
+                          }
+                          if (value.length < 6) {
+                            return 'A senha deve ter pelo menos 6 caracteres';
+                          }
+                          return null;
+                        },
                       ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Por favor, insira sua senha';
-                        }
-                        if (value.length < 6) {
-                          return 'A senha deve ter pelo menos 6 caracteres';
-                        }
-                        return null;
-                      },
-                    )),
+                    ),
                   ),
 
                   // Botão Login
                   SizedBox(
                     width: double.infinity,
                     height: 56,
-                    child: Obx(() => ElevatedButton(
-                      onPressed: authController.isLoading.value 
-                          ? null 
-                          : authController.login,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF8162FF),
-                        foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
+                    child: Obx(
+                      () => ElevatedButton(
+                        onPressed: authController.isLoading.value
+                            ? null
+                            : authController.login,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF8162FF),
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          elevation: 0,
                         ),
-                        elevation: 0,
+                        child: authController.isLoading.value
+                            ? const SizedBox(
+                                width: 20,
+                                height: 20,
+                                child: CircularProgressIndicator(
+                                  color: Colors.white,
+                                  strokeWidth: 2,
+                                ),
+                              )
+                            : const Text(
+                                'Entrar',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                       ),
-                      child: authController.isLoading.value
-                          ? const SizedBox(
-                              width: 20,
-                              height: 20,
-                              child: CircularProgressIndicator(
-                                color: Colors.white,
-                                strokeWidth: 2,
-                              ),
-                            )
-                          : const Text(
-                              'Entrar',
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                    )),
+                    ),
                   ),
                 ],
               ),
@@ -179,5 +183,4 @@ class Login extends StatelessWidget {
       ),
     );
   }
-
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:projeto_final/pages/perfil.dart';
+import 'package:projeto_final/controllers/auth_controller.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
@@ -18,14 +20,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                'Olá, Hugo!',
-                style: TextStyle(
-                  fontSize: 22,
-                  color: const Color(0xFF9575FF),
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              Obx(() {
+                final authController = Get.find<AuthController>();
+                final userName = authController.currentUser.value?.name ?? 'Usuário';
+                return Text(
+                  'Olá, $userName!',
+                  style: TextStyle(
+                    fontSize: 22,
+                    color: const Color(0xFF9575FF),
+                    fontWeight: FontWeight.bold,
+                  ),
+                );
+              }),
               Text(
                 'Seja Bem-vindo!',
                 style: TextStyle(fontSize: 12, color: Colors.white60),

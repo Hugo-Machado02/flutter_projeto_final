@@ -16,7 +16,7 @@ Abaixo estão as telas principais da aplicação. O design foi pensado para ser 
 
 | Login | Home | Favoritos |
 |:---:|:---:|:---:|
-| ![Login](<img width="436" height="959" alt="flutter - 01" src="https://github.com/user-attachments/assets/fdec4ebf-430a-4b05-b4da-8ec9ac3f1a36" />) | ![Home Screenshot](<img width="451" height="967" alt="flutter - 02" src="https://github.com/user-attachments/assets/426e8adc-5cb5-4b09-803d-aafd01f7c1ac" />) | ![Favoritos Screenshot](<img width="451" height="967" alt="flutter - 03" src="https://github.com/user-attachments/assets/99109e93-fec1-4a32-bc97-3baa79a1c3af" />) |
+| ![Login](<img width="436" height="959" alt="flutter - 01" src="https://github.com/user-attachments/assets/9f8c670f-ca58-4fbe-947e-c3480af03ea7" />) | ![Home Screenshot](<img width="451" height="967" alt="flutter - 02" src="https://github.com/user-attachments/assets/426e8adc-5cb5-4b09-803d-aafd01f7c1ac" />) | ![Favoritos Screenshot](<img width="451" height="967" alt="flutter - 03" src="https://github.com/user-attachments/assets/99109e93-fec1-4a32-bc97-3baa79a1c3af" />) |
 | *Autenticação* | *Listagem via API RAWG* | *Gestão de Favoritos* |
 
 | Usuários (Lista) | Perfil | Cadastro/Edição |

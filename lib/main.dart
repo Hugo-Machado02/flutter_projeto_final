@@ -17,11 +17,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Inicializar controllers
     Get.put(AuthController());
     Get.put(GamesController());
     Get.put(NavigationController());
-    
+
     return GetMaterialApp(
       title: 'Catálogo de Jogos',
       theme: ThemeData(

@@ -9,7 +9,7 @@ class AuthController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
-  
+
   var isPasswordVisible = false.obs;
   var isLoading = false.obs;
   var isLoggedIn = false.obs;
@@ -20,7 +20,7 @@ class AuthController extends GetxController {
     super.onInit();
     _initDatabase();
   }
-  
+
   Future<void> _initDatabase() async {
     await UserRepository.init();
     await DatabaseMigration.runMigrations();
@@ -32,18 +32,21 @@ class AuthController extends GetxController {
 
   Future<void> login() async {
     if (!formKey.currentState!.validate()) return;
-    
+
     isLoading.value = true;
     await Future.delayed(const Duration(seconds: 1));
-    
-    final user = UserService.loginUser(emailController.text, passwordController.text);
-    
+
+    final user = UserService.loginUser(
+      emailController.text,
+      passwordController.text,
+    );
+
     if (user == null) {
       _showError('Usuário ou senha inválidos');
       isLoading.value = false;
       return;
     }
-    
+
     currentUser.value = user;
     isLoggedIn.value = true;
     isLoading.value = false;
@@ -57,15 +60,15 @@ class AuthController extends GetxController {
     passwordController.clear();
     Get.offAllNamed('/login');
   }
-  
+
   Future<void> updateUserFavorites(List<int> favoriteIds) async {
     if (currentUser.value != null) {
       await UserService.updateUserFavorites(currentUser.value!.id, favoriteIds);
       currentUser.value!.favoriteGameIds = favoriteIds;
-      currentUser.refresh(); // Notifica mudanças
+      currentUser.refresh();
     }
   }
-  
+
   void reloadCurrentUser() {
     if (currentUser.value != null) {
       final updatedUser = UserService.getUser(currentUser.value!.id);
@@ -76,7 +79,12 @@ class AuthController extends GetxController {
   }
 
   void _showError(String message) {
-    Get.snackbar('Erro', message, backgroundColor: Colors.red, colorText: Colors.white);
+    Get.snackbar(
+      'Erro',
+      message,
+      backgroundColor: Colors.red,
+      colorText: Colors.white,
+    );
   }
 
   @override

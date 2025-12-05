@@ -1,83 +1,133 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_final/models/game.dart';
+import 'package:get/get.dart';
+import 'package:projeto_final/controllers/games_controller.dart';
+import 'package:projeto_final/controllers/navigation_controller.dart';
 import 'package:projeto_final/shared/custom_app_bar.dart';
 import 'package:projeto_final/shared/custom_menu.dart';
-import 'package:projeto_final/shared/item_game.dart';
+import 'package:projeto_final/pages/list_games.dart';
 
-class FavoriteGames extends StatefulWidget {
+class FavoriteGames extends StatelessWidget {
   const FavoriteGames({super.key});
 
   @override
-  State<FavoriteGames> createState() => _FavoriteGamesState();
-}
-
-class _FavoriteGamesState extends State<FavoriteGames> {
-  List<Game> games = [
-    Game(
-      id: 3,
-      title: "Red Dead Redemption 2",
-      urlImage:
-          "https://media.rawg.io/media/games/52b/52be96c19be0d79eeb8664e4ca2aabd5.jpg",
-    ),
-    Game(
-      id: 5,
-      title: "Elden Ring",
-      urlImage:
-          "https://media.rawg.io/media/games/b54/b54598d1d5cc31899f4f0a7e3122a7b0.jpg",
-    ),
-    Game(
-      id: 6,
-      title: "The Witcher 3",
-      urlImage:
-          "https://media.rawg.io/media/games/52b/52be96c19be0d79eeb8664e4ca2aabd5.jpg",
-    ),
-  ];
-  @override
   Widget build(BuildContext context) {
+    final GamesController gamesController = Get.find<GamesController>();
+    final NavigationController navController = Get.find<NavigationController>();
+
+    navController.setCurrentIndex(2);
+
     return Scaffold(
-      appBar: CustomAppBar(userName: 'Hugo'),
+      appBar: CustomAppBar(),
       body: Container(
-        padding: EdgeInsets.all(10),
-        color: Color(0xFF141518),
+        padding: const EdgeInsets.all(16),
+        color: Color(0xFF101013),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(
-                left: 16.0,
-                bottom: 16.0,
-                top: 8.0,
-              ),
-              child: Text(
-                'Favoritos',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w300,
-                  color: Colors.white,
-                  letterSpacing: 0.5,
-                ),
+              padding: const EdgeInsets.only(bottom: 24, top: 8),
+              child: Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: [Color(0xFF8162FF), Color(0xFF9575FF)],
+                      ),
+                      borderRadius: BorderRadius.circular(12),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color(0xFF8162FF).withOpacity(0.3),
+                          blurRadius: 8,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
+                    ),
+                    child: const Icon(
+                      Icons.favorite,
+                      color: Colors.white,
+                      size: 24,
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Meus Favoritos',
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            letterSpacing: 0.5,
+                          ),
+                        ),
+                        Text(
+                          'Seus jogos preferidos',
+                          style: TextStyle(fontSize: 14, color: Colors.white60),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
             Expanded(
-              child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  childAspectRatio: 0.7,
-                ),
-                itemCount: games.length,
-                itemBuilder: (context, index) {
-                  final gamesElement = games[index];
+              child: Obx(() {
+                final favoriteGames = gamesController.favoriteGames;
 
-                  return ItemGame(
-                    id: gamesElement.id,
-                    title: gamesElement.title,
-                    urlImage: gamesElement.urlImage,
-                    txt_btn: "Remover",
+                if (favoriteGames.isEmpty) {
+                  return Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(24),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white.withOpacity(0.1),
+                          ),
+                          child: Icon(
+                            Icons.favorite_border,
+                            size: 48,
+                            color: Colors.white38,
+                          ),
+                        ),
+                        const SizedBox(height: 24),
+                        Text(
+                          'Nenhum jogo favoritado',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white70,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                      ],
+                    ),
                   );
-                },
-              ),
+                }
+
+                return GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 16,
+                    mainAxisSpacing: 16,
+                    childAspectRatio: 0.7,
+                  ),
+                  itemCount: favoriteGames.length,
+                  itemBuilder: (context, index) {
+                    final game = favoriteGames[index];
+
+                    return ItemGameReactive(
+                      game: game,
+                      isFavorite: true,
+                      onToggle: () => gamesController.toggleFavorite(game),
+                    );
+                  },
+                );
+              }),
             ),
           ],
         ),

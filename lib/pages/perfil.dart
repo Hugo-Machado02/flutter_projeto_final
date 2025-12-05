@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:projeto_final/controllers/auth_controller.dart';
+import 'package:projeto_final/pages/operation_users.dart';
 
 class Perfil extends StatefulWidget {
   const Perfil({super.key});
@@ -55,26 +56,34 @@ class _PerfilState extends State<Perfil> {
             ),
             const SizedBox(height: 24),
             // Nome
-            Text(
-              'Hugo Machado',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
+            Obx(() {
+              final authController = Get.find<AuthController>();
+              final userName =
+                  authController.currentUser.value?.name ?? 'Usuário';
+              return Text(
+                userName,
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              );
+            }),
             const SizedBox(height: 8),
             const SizedBox(height: 40),
             // Opções do perfil
             _buildProfileOption(
               icon: Icons.edit,
               title: 'Editar Perfil',
-              onTap: () {},
-            ),
-            _buildProfileOption(
-              icon: Icons.lock_reset,
-              title: 'Alterar Senha',
-              onTap: () {},
+              onTap: () {
+                final authController = Get.find<AuthController>();
+                final currentUser = authController.currentUser.value;
+                if (currentUser != null) {
+                  Get.to(
+                    () => OperationUsers(user: currentUser, fromProfile: true),
+                  );
+                }
+              },
             ),
             _buildProfileOption(
               icon: Icons.logout,

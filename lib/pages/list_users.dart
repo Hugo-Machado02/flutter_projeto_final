@@ -11,10 +11,15 @@ class ListUsers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final UserController userController = Get.put(UserController(), permanent: true);
+    final UserController userController = Get.put(
+      UserController(),
+      permanent: true,
+    );
     final NavigationController navController = Get.find<NavigationController>();
 
-    navController.setCurrentIndex(0);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      navController.setCurrentIndex(0);
+    });
 
     return Scaffold(
       appBar: CustomAppBar(),

@@ -19,13 +19,7 @@ class ListGames extends StatelessWidget {
       appBar: CustomAppBar(),
       body: Container(
         padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [const Color(0xFF141518), const Color(0xFF0F1012)],
-          ),
-        ),
+        color: Color(0xFF101013),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

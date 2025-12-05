@@ -1,7 +1,8 @@
-# 🎮 PROJETO FINAL - CATALOGO DE JOGOS 🎮
+<img width="451" height="967" alt="flutter - 02" src="https://github.com/user-attachments/assets/9fcd934a-0a16-4943-9b7d-e4c7092239c5" /># 🎮 PROJETO FINAL - CATALOGO DE JOGOS 🎮
 > Um aplicativo intuitivo para descoberta e gerenciamento de catálogos de jogos.
 
 ---
+
 
 ## 📖 Sobre o Projeto 📖
 
@@ -16,7 +17,7 @@ Abaixo estão as telas principais da aplicação. O design foi pensado para ser 
 
 | Login | Home | Favoritos |
 |:---:|:---:|:---:|
-| ![Login](<img width="436" height="959" alt="flutter - 01" src="https://github.com/user-attachments/assets/9f8c670f-ca58-4fbe-947e-c3480af03ea7" />) | ![Home Screenshot](<img width="451" height="967" alt="flutter - 02" src="https://github.com/user-attachments/assets/426e8adc-5cb5-4b09-803d-aafd01f7c1ac" />) | ![Favoritos Screenshot](<img width="451" height="967" alt="flutter - 03" src="https://github.com/user-attachments/assets/99109e93-fec1-4a32-bc97-3baa79a1c3af" />) |
+| <img width="451" height="967" alt="flutter - 02" src="https://github.com/user-attachments/assets/e10740bd-dacf-4594-8466-aa88b795a7b3" />  | <img width="451" height="967" alt="flutter - 02" src="https://github.com/user-attachments/assets/e10740bd-dacf-4594-8466-aa88b795a7b3" /> | <img width="451" height="967" alt="flutter - 02" src="https://github.com/user-attachments/assets/e10740bd-dacf-4594-8466-aa88b795a7b3" /> |
 | *Autenticação* | *Listagem via API RAWG* | *Gestão de Favoritos* |
 
 | Usuários (Lista) | Perfil | Cadastro/Edição |

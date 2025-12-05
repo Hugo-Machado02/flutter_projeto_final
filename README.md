@@ -18,12 +18,10 @@ Abaixo estão as telas principais da aplicação. O design foi pensado para ser 
 | Login | Home | Favoritos |
 |:---:|:---:|:---:|
 | <img width="436" height="959" alt="flutter - 01" src="https://github.com/user-attachments/assets/a9f12936-b714-4b7b-8a4f-70f0ef643c79" /> | <img width="451" height="967" alt="flutter - 02" src="https://github.com/user-attachments/assets/0b1bdd01-e0e3-4522-a397-e378b5be6e35" /> | <img width="451" height="967" alt="flutter - 03" src="https://github.com/user-attachments/assets/7f0258ab-1905-4f5a-93af-340149f4a70c" /> |
-| *Autenticação* | *Listagem via API RAWG* | *Gestão de Favoritos* |
-
+---
 | Usuários | Perfil | Cadastro/Edição |
 |:---:|:---:|:---:|
 | <img width="446" height="961" alt="flutter - 04" src="https://github.com/user-attachments/assets/a040a0d8-2c13-451e-bfc6-9aeede1dba26" /> | <img width="438" height="974" alt="flutter - 05" src="https://github.com/user-attachments/assets/53be5e6f-48a3-42e9-83b6-7c7dc4444ee0" /> | <img width="442" height="975" alt="Flutter - 06" src="https://github.com/user-attachments/assets/3d47d9dc-008d-48d4-9cd5-6089556df465" /> |
-| *Visualização CRUD* | *Dados do usuário logado* | *Inclusão e alteração* |
 
 ### Descrição Detalhada das Telas
 
